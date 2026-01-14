@@ -195,43 +195,65 @@ onMounted(() => {
 .header {
   text-align: center;
   color: white;
-  margin-bottom: 40px;
-  padding: 40px 20px;
+  margin-bottom: 20px;
+  padding: 20px;
 }
 
 .header-content {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  gap: 10px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .header-title {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
 }
 
-.header h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+.header-title h1 {
+  font-size: 1.8rem;
+  margin: 0;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.header p {
-  font-size: 1.2rem;
-  opacity: 0.9;
+.header-title p {
+  font-size: 0.95rem;
+  margin: 0;
+  opacity: 0.95;
+  padding: 0 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .user-info {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
 .username {
   color: white;
   font-size: 1.1rem;
   font-weight: 600;
+  word-break: break-word;
 }
 
 .logout-btn {
@@ -243,6 +265,7 @@ onMounted(() => {
   font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.3s;
+  word-break: break-word;
 }
 
 .logout-btn:hover {
@@ -255,8 +278,10 @@ onMounted(() => {
 }
 
 .container {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 30px;
+  padding: 10px;
 }
 
 .form-section {
@@ -289,7 +314,7 @@ onMounted(() => {
 .search-input:focus {
   outline: none;
   border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  box-shadow: 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .loading,
@@ -304,5 +329,30 @@ onMounted(() => {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .user-info {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .container {
+    gap: 20px;
+  }
+
+  .form-section,
+  .records-section {
+    padding: 20px;
+  }
+
+  .records-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
